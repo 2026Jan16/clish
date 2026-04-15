@@ -1,0 +1,44 @@
+make  all-am
+make[1]: Entering directory '/home/amantya/git/ssh/clish'
+depbase=`echo tinyrl/tinyrl.lo | sed 's|[^/]*$|.deps/&|;s|\.lo$||'`; \
+if /bin/bash ./libtool --tag=CC --mode=compile gcc -DHAVE_CONFIG_H   -I. -I.  -ansi -pedantic -Werror -Wall -D_POSIX_C_SOURCE=199309  -g -O2 -MT tinyrl/tinyrl.lo -MD -MP -MF "$depbase.Tpo" -c -o tinyrl/tinyrl.lo tinyrl/tinyrl.c; \
+then mv -f "$depbase.Tpo" "$depbase.Plo"; else rm -f "$depbase.Tpo"; exit 1; fi
+ gcc -DHAVE_CONFIG_H -I. -I. -ansi -pedantic -Werror -Wall -D_POSIX_C_SOURCE=199309 -g -O2 -MT tinyrl/tinyrl.lo -MD -MP -MF tinyrl/.deps/tinyrl.Tpo -c tinyrl/tinyrl.c  -fPIC -DPIC -o tinyrl/.libs/tinyrl.o
+tinyrl/tinyrl.c: In function 'tinyrl_insert_text':
+tinyrl/tinyrl.c:915:5: error: '__builtin_strncpy' output truncated before terminating nul copying as many bytes from a string as its length [-Werror=stringop-truncation]
+  915 |     strncpy(&this->buffer[this->point],text,delta);
+      |     ^
+tinyrl/tinyrl.c:883:22: note: length computed here
+  883 |     unsigned delta = strlen(text);
+      |                      ^~~~~~~~~~~~
+tinyrl/tinyrl.c: In function 'tinyrl_key_default':
+tinyrl/tinyrl.c:90:23: error: '%d' directive writing between 1 and 11 bytes into a region of size 9 [-Werror=format-overflow=]
+   90 |         sprintf(tmp,"~%d",key);
+      |                       ^~
+In function 'tinyrl_key_default',
+    inlined from 'tinyrl_key_default' at tinyrl/tinyrl.c:75:1:
+tinyrl/tinyrl.c:90:21: note: directive argument in the range [-2147483648, 31]
+   90 |         sprintf(tmp,"~%d",key);
+      |                     ^~~~~
+In file included from /usr/include/stdio.h:970,
+                 from tinyrl/tinyrl.c:10:
+In function 'sprintf',
+    inlined from 'tinyrl_key_default' at tinyrl/tinyrl.c:90:9,
+    inlined from 'tinyrl_key_default' at tinyrl/tinyrl.c:75:1:
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:30:10: note: '__builtin___sprintf_chk' output between 3 and 13 bytes into a destination of size 10
+   30 |   return __builtin___sprintf_chk (__s, __USE_FORTIFY_LEVEL - 1,
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   31 |                                   __glibc_objsize (__s), __fmt,
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+   32 |                                   __va_arg_pack ());
+      |                                   ~~~~~~~~~~~~~~~~~
+cc1: all warnings being treated as errors
+make[1]: *** [Makefile:2003: tinyrl/tinyrl.lo] Error 1
+make[1]: Leaving directory '/home/amantya/git/ssh/clish'
+make: *** [Makefile:788: all] Error 2
+
+
+
+/usr/bin/ld: cannot find -ltinyxml: No such file or directory
+/usr/bin/ld: cannot find -ltinyxml: No such file or directory
+
