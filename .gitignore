@@ -38,4 +38,7 @@ tinyxml/.deps/
 *.la
 test/bintree
 test/string
+bin/clish
+bin/tclish
+
 
