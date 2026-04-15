@@ -31,3 +31,11 @@ tinyrl/.deps/
 tinyrl/history/.deps/
 tinyrl/vt100/.deps/
 tinyxml/.deps/
+*.lo
+*.o
+.libs
+.dirstamp
+*.la
+test/bintree
+test/string
+
