@@ -40,5 +40,7 @@ test/bintree
 test/string
 bin/clish
 bin/tclish
+autom4te.cache/
+configure~
 
 
