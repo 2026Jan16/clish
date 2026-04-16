@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CLISH_MODULE xmlns="http://clish.sourceforge.net/XMLSchema" 
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+ xsi:schemaLocation="http://clish.sourceforge.net/XMLSchema
+                     http://clish.sourceforge.net/XMLSchema/clish.xsd">
+    <VIEW name="root-view">
+        <COMMAND name="cli-comms"
+                         help="Enter CLI communications view"
+		view="cli-comms-view"/>
+    </VIEW>
+
+    <VIEW name="cli-comms-view"
+            prompt="cli-comms# ">
+        <COMMAND name="help"
+                 help="Display help information">
+	<ACTION>
+		    echo ""
+		    echo "About: Its a cli based encrypted communications application between 2 users."\
+		    " ""Encryption is performed by the application itself before it sends the data out."
+		    echo ""
+            </ACTION>
+        </COMMAND>
+	<COMMAND name="show" help="Show" />
+	<COMMAND name="show peers-registered" help="Show all peers registered">
+		<ACTION builtin="cli_comms_ctl">"show peers-registered"</ACTION>
+	</COMMAND>
+	<COMMAND name="show peers-online" help="Show all peers online">
+		<ACTION builtin="cli_comms_ctl">show peers-online</ACTION>
+	</COMMAND>
+        <COMMAND name="rename"
+                 help="Enter the named view"
+                 view="named-view"
+               viewid="name=${new_name};foobar=${foobar}">
+            <PARAM name="new_name"
+                   help="The name to used for the named view"
+                   ptype="STRING"/>
+                <ACTION> echo "Changing name to '${new_name}'"</ACTION>
+        </COMMAND>
+        <COMMAND name="exit"
+                 help="Exit the named view"
+                 view="root-view"/>
+    </VIEW>
+</CLISH_MODULE>

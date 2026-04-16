@@ -15,6 +15,7 @@
  * These are the internal commands for this framework.
  */
 static clish_shell_builtin_fn_t 
+	cli_comms_ctl,
     clish_close,
     clish_overview,
     clish_source,
@@ -23,6 +24,7 @@ static clish_shell_builtin_fn_t
 
 static clish_shell_builtin_t clish_cmd_list[] =
 {
+    {"cli_comms_ctl",       cli_comms_ctl},
     {"clish_close",         clish_close},
     {"clish_overview",      clish_overview},
     {"clish_source",        clish_source},
@@ -30,6 +32,14 @@ static clish_shell_builtin_t clish_cmd_list[] =
     {"clish_history",       clish_history},
     {NULL,NULL}
 };
+static bool_t
+cli_comms_ctl(const clish_shell_t *shell,
+            const lub_argv_t    *argv)
+{
+	const char *opcode_str = lub_argv__get_arg(argv, 0);
+	printf("Opcode string: %s\n", opcode_str);
+	return BOOL_TRUE;
+}
 /*----------------------------------------------------------- */
 /*
  Terminate the current shell session 
