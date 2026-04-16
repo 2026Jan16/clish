@@ -42,5 +42,7 @@ bin/clish
 bin/tclish
 autom4te.cache/
 configure~
+config.h.in
+config.h.in~
 
 
