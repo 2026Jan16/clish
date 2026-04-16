@@ -25,7 +25,12 @@
 		<ACTION builtin="cli_comms_ctl">"show peers-registered"</ACTION>
 	</COMMAND>
 	<COMMAND name="show peers-online" help="Show all peers online">
-		<ACTION builtin="cli_comms_ctl">show peers-online</ACTION>
+		<ACTION builtin="cli_comms_ctl">"show peers-online"</ACTION>
+	</COMMAND>
+	<COMMAND name="this-peer" help="Specify this peer's name">
+		<PARAM name="peer-name"
+			help="Give this peer a name. Its used in registration.">
+		<ACTION>
 	</COMMAND>
         <COMMAND name="rename"
                  help="Enter the named view"
