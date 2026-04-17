@@ -32,14 +32,17 @@ static clish_shell_builtin_t clish_cmd_list[] =
     {"clish_history",       clish_history},
     {NULL,NULL}
 };
+
 static bool_t
 cli_comms_ctl(const clish_shell_t *shell,
-            const lub_argv_t    *argv)
+		const lub_argv_t *argv)
 {
-	const char *opcode_str = lub_argv__get_arg(argv, 0);
-	printf("Opcode string: %s\n", opcode_str);
+	unsigned argc = lub_argv__get_count(argv); 
+	printf("argc: %u\n", argc);
 	return BOOL_TRUE;
 }
+
+
 /*----------------------------------------------------------- */
 /*
  Terminate the current shell session 
